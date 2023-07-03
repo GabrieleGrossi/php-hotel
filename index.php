@@ -54,6 +54,19 @@ Dopo aggiungete Bootstrap e mostrate le informazioni con una tabella.
     <title>Php Hotel</title>
 </head>
 <body>
-    
+    <div>
+        <ul>
+            <?php 
+                foreach($hotels as $hotel) {
+            ?>
+                <li>
+                    <?php
+                        echo $hotel['name'] . '|' . $hotel['description'] . '|' .  $hotel['vote'] . '|' . $hotel['distance_to_center']; ?>
+                </li>
+            <?php
+                }
+            ?>
+        </ul>
+    </div>
 </body>
 </html>
