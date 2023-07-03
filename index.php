@@ -51,22 +51,62 @@ Dopo aggiungete Bootstrap e mostrate le informazioni con una tabella.
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <!--<link href="./style/style.css">-->
     <title>Php Hotel</title>
 </head>
 <body>
-    <div>
-        <ul>
-            <?php 
-                foreach($hotels as $hotel) {
-            ?>
+    <!-- 
+        <div>
+            <ul>
+                <?php 
+                    foreach($hotels as $hotel) {
+                ?>
+                    <li>
+                        <?php
+                            echo $hotel['name'] . '|' . $hotel['description'] . '|' .  $hotel['vote'] . '|' . $hotel['distance_to_center']; ?>
+                    </li>
+                <?php
+                    }
+                ?>
+            </ul>
+        </div>
+    -->
+    <?php 
+        foreach($hotels as $hotel) {
+    ?>
+        <div class="card" style="width: 18rem;">
+            <h5>
+                <?php
+                    echo $hotel['name']
+                ?>
+            </h5>
+            <ul>
                 <li>
+                    Description ||
                     <?php
-                        echo $hotel['name'] . '|' . $hotel['description'] . '|' .  $hotel['vote'] . '|' . $hotel['distance_to_center']; ?>
+                        echo $hotel['description'];
+                    ?>
                 </li>
-            <?php
-                }
-            ?>
-        </ul>
-    </div>
+                <li>
+                    Vote ||
+                    <?php
+                        echo $hotel['vote']. ' stars';
+                    ?>
+                </li>
+                <li>
+                    Distance to center ||
+                    <?php
+                        echo $hotel['distance_to_center']. ' km';
+                    ?>
+                </li>
+            </ul>
+        </div>
+    <?php
+        }
+    ?>
 </body>
 </html>
